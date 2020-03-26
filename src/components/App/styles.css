@@ -21,35 +21,29 @@ img {
 h2 {
   font-size: 1.5rem;
   margin: 0 0 10px;
+  transition: all 0.3s ease;
 }
 
 h3 {
   font-size: 2rem;
   margin: 0;
+  transition: all 0.3s ease;
 }
-
-/* .animate {
-  animation: FADE-IN 0.3s;
-}
-
-.animate-long {
-  animation: FADE-IN 1s forwards;
-  animation-delay: 1s;
-  opacity: 0;
-} */
 
 button {
   background-color: #007bff;
   border-color: #007bff;
-  border: 1px solid;
   border-radius: 5px;
+  border: 1px solid;
   box-shadow: none;
   color: #ffffff;
   cursor: pointer;
   font-size: 1.5rem;
   line-height: 1.5;
   margin: 50px 0;
+  min-width: 225px;
   outline: none;
   padding: 6px 12px;
   text-transform: none;
+  transition: all 0.3s ease;
 }

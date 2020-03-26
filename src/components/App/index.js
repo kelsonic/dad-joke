@@ -1,17 +1,15 @@
 // Dependencies.
 import React, { Component } from 'react';
-import filter from 'lodash/filter';
 import get from 'lodash/get';
-import sample from 'lodash/sample';
 // Relative imports.
 import logo from 'assets/images/logo.svg';
-import JOKES from './JOKES';
 import './styles.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      fetching: false,
       joke: undefined,
     };
   }
@@ -31,24 +29,31 @@ class App extends Component {
     }
   };
 
-  generateJoke = () => {
-    const { joke: currentJoke } = this.state;
+  generateJoke = async () => {
+    const { fetching } = this.state;
 
-    // Do not include the current joke.
-    const filteredJokes = filter(
-      JOKES,
-      (joke) =>
-        `${get(joke, 'preline')} ${get(joke, 'punchline')}` !==
-        `${get(currentJoke, 'preline', '')} ${get(currentJoke, 'punchline', '')}`,
-    );
+    // Escape early if we are already fetching a random joke.
+    if (fetching) {
+      return;
+    }
 
-    // Choose another joke.
-    this.setState({ joke: sample(filteredJokes) });
+    // Turn on fetching state.
+    this.setState({ fetching: true });
+
+    fetch('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
+      .then((res) => res.json())
+      .then((joke) => {
+        this.setState({ fetching: false, joke });
+      })
+      .catch((err) => {
+        console.error('Error fetching dad joke', err);
+        this.setState({ fetching: false });
+      });
   };
 
   render() {
     const { generateJoke } = this;
-    const { joke } = this.state;
+    const { fetching, joke } = this.state;
 
     return (
       <div className="app">
@@ -61,14 +66,14 @@ class App extends Component {
           {/* Generated Joke */}
           {joke && (
             <>
-              <h2 className={joke ? 'animate' : ''}>{get(joke, 'preline')}</h2>
+              <h2 className={joke ? 'animate' : ''}>{get(joke, 'setup')}</h2>
               <h3 className={joke ? 'animate-long' : ''}>{get(joke, 'punchline')}</h3>
             </>
           )}
 
           {/* Generate a Joke */}
           <button onClick={generateJoke} type="button">
-            Generate Dad Joke
+            {fetching ? '...' : 'Generate Dad Joke'}
           </button>
         </div>
 
