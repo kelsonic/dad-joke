@@ -4,7 +4,15 @@
 
 ## Purpose
 
-It can be tough to come up with a good dad joke for just the right occasion. This site makes it simple!
+It can be tough to come up with a good dad joke for just the right occasion. This site makes it simple to make any normal moment super awkward!
+
+[Navigate to the website.](https://dadjokegen.com) Then just click `Generate Dad Joke`!
+
+![Homepage Screenshot](./public/home.png)
+
+Keep clicking the `Generate Dad Joke` button to get your daily dad joke fill!
+
+![Joke Screenshot](./public/joke.png)
 
 ## Getting Started (locally)
 
