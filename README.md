@@ -1,6 +1,6 @@
-# [The Dad Joke Generator](https://dadjokegenerator.com/)
+# [The Dad Joke Generator](https://dadjokegen.com/)
 
-[https://dadjokegenerator.com/](https://dadjokegenerator.com/)
+[https://dadjokegen.com/](https://dadjokegen.com/)
 
 ## Purpose
 

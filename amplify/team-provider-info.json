@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-dad-joke-dev-92440-authRole",
+            "UnauthRoleArn": "arn:aws:iam::680100818140:role/amplify-dad-joke-dev-92440-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::680100818140:role/amplify-dad-joke-dev-92440-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-dad-joke-dev-92440-deployment",
+            "UnauthRoleName": "amplify-dad-joke-dev-92440-unauthRole",
+            "StackName": "amplify-dad-joke-dev-92440",
+            "StackId": "arn:aws:cloudformation:us-east-1:680100818140:stack/amplify-dad-joke-dev-92440/ea64c1f0-6f75-11ea-85dc-12a6272b4c0e",
+            "AmplifyAppId": "d2wjocg576i3ke"
+        }
+    }
+}
