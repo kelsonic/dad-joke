@@ -73,7 +73,7 @@ class App extends Component {
 
           {/* Generate a Joke */}
           <button onClick={generateJoke} type="button">
-            {fetching ? '...' : 'Generate Dad Joke'}
+            {fetching ? <img alt="logo" className="spinner" src={logo} /> : 'Generate Dad Joke'}
           </button>
         </div>
 
