@@ -4,6 +4,7 @@ import filter from 'lodash/filter';
 import get from 'lodash/get';
 import sample from 'lodash/sample';
 // Relative imports.
+import logo from 'assets/images/logo.svg';
 import JOKES from './JOKES';
 import './styles.css';
 
@@ -11,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      joke: '',
+      joke: undefined,
     };
   }
 
@@ -38,7 +39,7 @@ class App extends Component {
       JOKES,
       (joke) =>
         `${get(joke, 'preline')} ${get(joke, 'punchline')}` !==
-        `${get(currentJoke, 'preline')} ${get(currentJoke, 'punchline')}`,
+        `${get(currentJoke, 'preline', '')} ${get(currentJoke, 'punchline', '')}`,
     );
 
     // Choose another joke.
@@ -54,9 +55,16 @@ class App extends Component {
         <div />
 
         <div className="joke">
+          {/* Logo */}
+          {!joke && <img alt="logo" src={logo} />}
+
           {/* Generated Joke */}
-          <h2 className={joke ? 'animate' : ''}>{get(joke, 'preline')}</h2>
-          <h3 className={joke ? 'animate-long' : ''}>{get(joke, 'punchline')}</h3>
+          {joke && (
+            <>
+              <h2 className={joke ? 'animate' : ''}>{get(joke, 'preline')}</h2>
+              <h3 className={joke ? 'animate-long' : ''}>{get(joke, 'punchline')}</h3>
+            </>
+          )}
 
           {/* Generate a Joke */}
           <button onClick={generateJoke} type="button">
